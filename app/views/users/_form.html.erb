@@ -11,7 +11,10 @@
     </div>
     <div class="half-width">
       <%= f.password_field 'password_confirmation', class: 'form-control', placeholder: 'Confirmation' %>          
-    </div>  
+    </div>
+  </div>
+   <div class="form-group">
+    <%= f.text_field 'image_url', class: 'form-control', placeholder: 'Avatar' %>
   </div>
   <div class="form-group">
       <%= f.submit 'Sign Up', class: 'btn btn-block btn-info' %>

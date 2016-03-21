@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'logout' => 'sessions#destroy'
+  get 'add_friend' => 'users#add_friend'
+  get 'remove_friend' => 'users#remove_friend'
 
   resources :users
   resources :sessions , only: [:new, :create]

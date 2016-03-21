@@ -3,7 +3,12 @@
     <%= image_tag user.try(:image_url) %>
     <div class="card-block">
       <h4 class="card-title"><%= user.try(:name) %></h4>
-      <a href="#" class="btn btn-primary">Button</a>
+      <% if (Friendship.find_by user_id: user.id, friend_id: current_user.id) || (Friendship.find_by user_id: current_user.id, friend_id: user.id) %>
+      <%= link_to "Chat now", remove_friend_path(friend_id: user.id),  :class => 'btn btn-success' %>
+      <%= link_to "Remove friend", remove_friend_path(friend_id: user.id),  :class => 'btn btn-primary' %>
+      <% else %>
+      <%= link_to "Add as a friend", add_friend_path(friend_id: user.id),  :class => 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>

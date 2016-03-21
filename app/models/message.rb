@@ -4,6 +4,5 @@ class Message < ActiveRecord::Base
 
 	def read?
 		!!read_at
-		
 	end
 end

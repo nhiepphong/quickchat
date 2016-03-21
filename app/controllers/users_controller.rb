@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.shuffle
+    #@users = User.all.shuffle
+    @users = User.where.not(id: current_user.id).shuffle
   end
 
   def create
@@ -23,8 +24,19 @@ class UsersController < ApplicationController
   	end
   end
 
+  def add_friend
+    Friendship.create(user_id: current_user.id, friend_id: params[:friend_id])
+    redirect_to users_path
+  end
+
+  def remove_friend
+    Friendship.where(user_id: current_user.id, friend_id: params[:friend_id]).delete_all
+    Friendship.where(friend_id: current_user.id, user_id: params[:friend_id]).delete_all
+    redirect_to users_path
+  end
+
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  	params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_url)
   end
 
 end

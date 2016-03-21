@@ -5,5 +5,8 @@ class User < ActiveRecord::Base
 	validates :name, presence: true
 
 	has_many :sent_messages, foreign_key: 'sender_id', class_name: 'Message'
+
+	has_many :friendships
+  	has_many :friends, through: :friendships
 	
 end
