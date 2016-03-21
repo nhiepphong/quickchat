@@ -1,0 +1,47 @@
+<section class="header-11-sub">
+	<div class="background background_chat">&nbsp;</div>
+	<div class="container">
+		<div class="row pad-top pad-bottom">
+			<div class=" col-lg-6 col-md-6 col-sm-6 center-block user-block">
+				<div class="chat-box-div">
+					<div class="chat-box-head">
+						CHAT HISTORY WITH <%= @friend.name %>
+					</div>
+					<div class="panel-body chat-box-main">
+
+						<% if @chats.count > 0 %>
+							<% @chats.each do |chat| %>
+							    <div class="chat-box-<%= chat_class_name(chat.sender.id) %>">
+									<%= chat.body%>
+								</div>
+								<div class="chat-box-name-<%= chat_class_name(chat.sender.id) %>">
+									<img src="<%= chat.sender.image_url%>" alt="bootstrap Chat box user image" class="img-circle">
+									-  <%= chat.sender.name%>
+								</div>
+								<hr class="hr-clas">
+							<% end %>
+						<% else %>
+							<div class="chat-box-left">
+							
+							</div>
+						<% end %>
+			
+					</div>
+					<div class="chat-box-footer">
+						<%= form_tag message_index_path, method: 'post' do %>
+							<%= hidden_field_tag 'friend_id', @friend.id %>
+							<div class="input-group">
+								<%= text_field_tag :content, nil, placeholder: "Enter Text Here..." ,class: 'form-control' %>
+								<span class="input-group-btn">
+									<%= submit_tag "SEND", class: 'btn btn-info' %>
+								</span>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+</section>

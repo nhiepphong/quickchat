@@ -952,6 +952,14 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
+.header-11-sub .background_chat {
+  background-image: image-url(image-path('background_chat.jpg'));
+  opacity: 100;
+  filter: alpha(opacity=10000);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
 @media (max-width: 767px) {
   .header-11-sub .background {
     background: #f6f6f2;

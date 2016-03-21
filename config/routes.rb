@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'remove_friend' => 'users#remove_friend'
 
   resources :users
+  resources :message
   resources :sessions , only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
