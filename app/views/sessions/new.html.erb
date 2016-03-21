@@ -3,20 +3,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 center-block user-block">
-				<h3>The Dating Site for Ruby Experts</h3>
-				<p>CoderDating is the first dating website just for experienced Ruby on Rails engineers.</p>
+				<h3>QuickChat Login</h3>
+				<p>QuickChat is the first chat website just for experienced Ruby on Rails engineers.</p>
 				<div class="signup-form">
-					<%= form_for(:session, url: login_path) do |f| %>
+					<%= form_tag sessions_path, method: 'post' do %>
 					<div class="form-group">
-						<%= f.text_field 'email', class: 'form-control', placeholder: 'Your E-mail' %>
+						<%= text_field_tag :email, nil, placeholder: "Your E-mail" ,class: 'form-control' %>
 					</div>
 					<div class="form-group">
 						<div class="half-width">
-							<%= f.password_field 'password', class: 'form-control', placeholder: 'Password' %>
+							<%= password_field_tag :password, nil, placeholder: "Password", class: 'form-control' %>
 						</div>
 					</div>
 					<div class="form-group">
-						<%= f.submit 'Sign In', class: 'btn btn-block btn-info' %>
+						<%= submit_tag "Sign In", class: 'btn btn-block btn-info' %>
 					</div>
 					<% end %>
 				</div>

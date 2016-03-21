@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   		session[:user_id] = @user.id
   		redirect_to users_path, flash: {success: "Register successfully!"}
   	else
-  		flash.now[:error] = "Register error"
+  		flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
   		render 'new'
   	end
   end
